@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Marketing Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@600;700;800&family=Poppins:wght@400;500;600;700&family=Noto+Sans+Thai:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FFFCF3; --paper:#FFFFFF; --red:#DB184C; --red-tint:#FDEBF0;
+  --lime:#D8F45E; --peri:#AAB6FA; --cyan:#7FF0F2;
+  --ink:#2B2B2B; --soft:#6E6A62; --line:#E6DEC8;
+  --tag-a:#E6EAFF; --tag-b:#DBFBFB; --tag-c:#F1FBC9;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:var(--bg);height:100%}
+body{font-family:"Poppins","Noto Sans Thai",sans-serif;color:var(--ink);overflow:hidden}
+.stage{width:1920px;height:1080px;position:absolute;left:0;top:0;transform-origin:0 0;padding:36px 40px 28px}
+.en{font-family:"League Spartan",sans-serif;text-transform:uppercase;letter-spacing:-.01em}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:22px}
+h1{font-size:50px;font-weight:800;color:var(--red);line-height:1}
+.sub{font-size:21px;color:var(--soft);margin-top:8px}
+.principles{display:flex;gap:10px}
+.pill{font-size:16px;font-weight:600;padding:7px 18px;border-radius:999px;background:var(--lime)}
+
+/* columns */
+.flow{display:grid;grid-template-columns:280px 34px 456px 34px 300px 34px 420px 34px 250px;height:612px}
+.col{display:flex;flex-direction:column;gap:12px}
+.colhead{display:flex;align-items:center;gap:10px;height:40px}
+.num{width:32px;height:32px;border-radius:50%;background:var(--ink);color:#fff;display:grid;place-items:center;font-weight:700;font-size:17px;flex:none}
+.colhead b{font-size:21px;font-weight:700}
+.colhead span{font-size:14px;color:var(--soft);font-family:"League Spartan";text-transform:uppercase;letter-spacing:.04em;margin-left:auto}
+.card{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:13px 15px}
+.card h3{font-size:18px;font-weight:700;margin-bottom:5px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.card p{font-size:15px;line-height:1.45;color:var(--soft)}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}
+.chip{font-size:13.5px;font-weight:500;padding:3px 10px;border-radius:999px;background:var(--tag-a)}
+.chip.b{background:var(--tag-b)} .chip.c{background:var(--tag-c)}
+.tag{font-size:11.5px;font-weight:700;padding:2px 8px;border-radius:6px;text-transform:uppercase;letter-spacing:.04em}
+.tag.paid{background:var(--red);color:#fff}
+.tag.org{background:var(--lime)}
+.tag.new{background:var(--peri)}
+.arrow{display:grid;place-items:center;padding-top:40px}
+.arrow svg{width:30px;height:30px}
+
+/* hero: conversion */
+.hero{background:var(--red);border-radius:20px;padding:14px 14px 14px;display:flex;flex-direction:column;gap:8px;flex:1;box-shadow:0 10px 30px rgba(219,24,76,.25)}
+.hero .hh{color:#fff;padding:2px 4px 4px}
+.hero .hh .en{font-size:30px;font-weight:800;line-height:1}
+.hero .hh div{font-size:15px;opacity:.9;margin-top:3px}
+.row{flex:1;background:#fff;border-radius:12px;padding:9px 12px;display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:center}
+.row .n{width:34px;height:34px;border-radius:50%;background:var(--red);color:#fff;font-weight:700;display:grid;place-items:center;font-size:17px}
+.row b{font-size:17px;display:block;line-height:1.2}
+.row small{font-size:13.5px;color:var(--soft);line-height:1.35;display:block}
+.colhead.red .num{background:var(--red)}
+.colhead.red b{color:var(--red)}
+
+/* data foundation */
+.links{display:grid;grid-template-columns:280px 34px 456px 34px 300px 34px 420px 34px 250px;height:44px;position:relative}
+.links svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.data{background:var(--ink);color:#fff;border-radius:18px;padding:16px 22px;display:grid;grid-template-columns:330px 1fr 380px;gap:24px;align-items:center;height:150px}
+.data .en{font-size:28px;font-weight:800;color:var(--lime);line-height:1}
+.data .t p{font-size:15px;color:#ddd;margin-top:6px;line-height:1.4}
+.data .chips{margin:0;gap:7px}
+.data .chip{background:#454545;color:#fff;font-size:14px;padding:5px 12px}
+.data .chip.k{background:var(--lime);color:var(--ink)}
+.back{border-left:1.5px dashed #777;padding-left:20px;font-size:15px;line-height:1.45;color:#ddd}
+.back b{color:#fff;font-size:17px;display:block;margin-bottom:3px}
+.foot{display:flex;justify-content:space-between;align-items:center;margin-top:12px;font-size:13px;color:var(--soft)}
+.dots{display:flex;gap:7px}.dots i{width:12px;height:12px;border-radius:50%;background:var(--lime);display:block}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+
+  <div class="top">
+    <div>
+      <h1 class="en">Digital Marketing Ecosystem</h1>
+      <div class="sub">วางผังให้ทุกจุดต่อถึงกัน แล้วให้ข้อมูลจากการขายวนกลับมาทำให้รอบหน้าดีขึ้น</div>
+    </div>
+    <div class="principles"><span class="pill">Branding</span><span class="pill">Customer Journey</span><span class="pill">Experience</span></div>
+  </div>
+
+  <div class="flow">
+    <!-- 1 TRUST -->
+    <div class="col">
+      <div class="colhead"><div class="num">1</div><b>สร้างความน่าเชื่อ</b><span>Trust</span></div>
+      <div class="card"><h3>รีวิว &amp; ชุมชน</h3><p>สิ่งที่คนอื่นพูดถึงเรา</p>
+        <div class="chips"><span class="chip">Google Reviews</span><span class="chip">Pantip</span><span class="chip">Wongnai</span><span class="chip">FB Group</span></div></div>
+      <div class="card"><h3>Creator</h3><p>คนที่ลูกค้าเชื่อ พูดแทนแบรนด์</p>
+        <div class="chips"><span class="chip">KOL</span><span class="chip">KOC</span><span class="chip">Affiliate</span><span class="chip">AI Avatar</span></div></div>
+      <div class="card"><h3>UGC &amp; สื่อ</h3><p>รีวิวจากลูกค้าจริง ข่าว และ PR</p>
+        <div class="chips"><span class="chip">UGC</span><span class="chip">PR / Media</span></div></div>
+      <div class="card"><h3>ปากต่อปาก</h3><p>เพื่อน ครอบครัว คนรู้จัก</p></div>
+    </div>
+
+    <div class="arrow"><svg viewBox="0 0 30 30"><path d="M3 15h22M17 7l8 8-8 8" fill="none" stroke="#2B2B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+    <!-- 2 REACH -->
+    <div class="col">
+      <div class="colhead"><div class="num">2</div><b>ดึงคนเข้ามา</b><span>Reach</span></div>
+      <div class="card"><h3>Search &amp; AI Search <span class="tag paid">Paid</span><span class="tag org">Organic</span></h3>
+        <div class="chips"><span class="chip">Google Search Ads</span><span class="chip">Performance Max</span><span class="chip c">SEO</span><span class="chip c">Google Business Profile</span></div>
+        <div class="chips"><span class="chip b">AI Overviews</span><span class="chip b">ChatGPT</span><span class="chip b">Gemini</span><span class="chip b">Perplexity</span><span class="tag new">GEO</span></div></div>
+      <div class="card"><h3>Social &amp; Video <span class="tag paid">Paid</span><span class="tag org">Organic</span></h3>
+        <div class="chips"><span class="chip">Facebook</span><span class="chip">Instagram Reels</span><span class="chip">Meta Advantage+</span><span class="chip">TikTok</span><span class="chip">Spark Ads</span><span class="chip">YouTube Shorts</span><span class="chip">LINE VOOM / LINE Ads</span><span class="chip">Threads</span></div></div>
+      <div class="card"><h3>Content ที่เป็นแกนกลาง</h3><p>ทุกช่องทางใช้เรื่องเดียวกัน ตัดเป็นหลายแบบ</p>
+        <div class="chips"><span class="chip c">Brand Archetype</span><span class="chip c">Hero's Journey</span><span class="chip c">Content Pillars</span><span class="chip c">Short Video</span><span class="chip c">Offer &amp; Pricing</span></div></div>
+    </div>
+
+    <div class="arrow"><svg viewBox="0 0 30 30"><path d="M3 15h22M17 7l8 8-8 8" fill="none" stroke="#2B2B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+    <!-- 3 ENGAGE -->
+    <div class="col">
+      <div class="colhead"><div class="num">3</div><b>คุยและตัดสินใจ</b><span>Consider</span></div>
+      <div class="card"><h3>Website / Landing Page</h3><p>หน้าเดียวที่ตอบครบ โหลดเร็ว ปุ่มชัด</p>
+        <div class="chips"><span class="chip">UX / UI</span><span class="chip">Call to Action</span><span class="chip">Mobile-first</span></div></div>
+      <div class="card"><h3>Chat Commerce</h3><p>คนไทยถามก่อนซื้อ แอดมินคือพนักงานขาย</p>
+        <div class="chips"><span class="chip b">LINE OA</span><span class="chip b">Messenger</span><span class="chip b">IG DM</span><span class="chip b">TikTok DM</span></div>
+        <div class="chips"><span class="chip c">Sales Script</span><span class="chip c">AI Chatbot</span><span class="chip c">ทีมแอดมิน</span></div></div>
+      <div class="card"><h3>Shop บนแพลตฟอร์ม</h3><p>ดูของ เทียบราคา อ่านรีวิว</p>
+        <div class="chips"><span class="chip">TikTok Shop</span><span class="chip">Shopee</span><span class="chip">Lazada</span></div></div>
+    </div>
+
+    <div class="arrow"><svg viewBox="0 0 30 30"><path d="M3 15h22M17 7l8 8-8 8" fill="none" stroke="#DB184C" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+    <!-- 4 CONVERT (hero) -->
+    <div class="col">
+      <div class="colhead red"><div class="num">4</div><b>ปิดการขาย</b><span style="color:var(--red)">End Conversion</span></div>
+      <div class="hero">
+        <div class="hh"><div class="en">Purchase</div><div>5 จุดที่เงินเข้าจริง ทุกจุดต้องวัดผลได้</div></div>
+        <div class="row"><div class="n">1</div><div><b>Website Checkout</b><small>ตะกร้า + จ่ายเงิน PromptPay / บัตร</small></div></div>
+        <div class="row"><div class="n">2</div><div><b>ปิดในแชท</b><small>LINE OA · Messenger · โอน / ลิงก์จ่ายเงิน</small></div></div>
+        <div class="row"><div class="n">3</div><div><b>Marketplace</b><small>Shopee · Lazada · TikTok Shop</small></div></div>
+        <div class="row"><div class="n">4</div><div><b>Live Commerce</b><small>TikTok LIVE · Facebook Live · Shopee Live</small></div></div>
+        <div class="row"><div class="n">5</div><div><b>Offline</b><small>หน้าร้าน · อีเวนต์ / บูธ · ตัวแทนขาย</small></div></div>
+      </div>
+    </div>
+
+    <div class="arrow"><svg viewBox="0 0 30 30"><path d="M3 15h22M17 7l8 8-8 8" fill="none" stroke="#2B2B2B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+
+    <!-- 5 RETAIN -->
+    <div class="col">
+      <div class="colhead"><div class="num">5</div><b>ให้ซื้อซ้ำ</b><span>Retain</span></div>
+      <div class="card"><h3>CRM / สมาชิก</h3><p>เก็บว่าใครซื้ออะไร เมื่อไร</p>
+        <div class="chips"><span class="chip">LINE OA Tag</span><span class="chip">แต้ม / Member</span></div></div>
+      <div class="card"><h3>ส่งข้อความ</h3>
+        <div class="chips"><span class="chip b">LINE Broadcast</span><span class="chip b">Email</span><span class="chip b">SMS</span></div></div>
+      <div class="card" style="border-color:var(--red);border-style:dashed"><h3 style="color:var(--red)">วนกลับไปข้อ 4</h3><p>Upsell · Cross-sell · Repeat Purchase</p></div>
+    </div>
+  </div>
+
+  <!-- links from journey to data -->
+  <div class="links">
+    <svg viewBox="0 0 1840 44" preserveAspectRatio="none">
+      <defs>
+        <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#6E6A62"/></marker>
+        <marker id="ahr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#DB184C"/></marker>
+      </defs>
+      <!-- events down from 3,4,5 -->
+      <line x1="954" y1="4" x2="954" y2="40" stroke="#6E6A62" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+      <line x1="1348" y1="4" x2="1348" y2="40" stroke="#DB184C" stroke-width="2.5" stroke-dasharray="5 4" marker-end="url(#ahr)"/>
+      <line x1="1717" y1="4" x2="1717" y2="40" stroke="#6E6A62" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+      <!-- audiences back up to 2 -->
+      <line x1="542" y1="42" x2="542" y2="4" stroke="#6E6A62" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ah)"/>
+      <text x="555" y="28" font-size="14" fill="#6E6A62" font-family="Poppins, Noto Sans Thai">ส่งกลุ่มเป้าหมายกลับไปยิงแอด</text>
+      <text x="968" y="28" font-size="14" fill="#6E6A62" font-family="Poppins, Noto Sans Thai">ทุกจุดส่ง event เข้าข้อมูลกลาง</text>
+    </svg>
+  </div>
+
+  <!-- DATA foundation -->
+  <div class="data">
+    <div class="t"><div class="en">Data &amp; Measurement</div><p>ฐานของทั้งผัง ยิ่งเก็บนาน ยิ่งยิงแอดแม่นและถูกลง</p></div>
+    <div class="chips">
+      <span class="chip">Google Tag Manager</span><span class="chip">GA4</span><span class="chip">Meta Pixel + Conversions API</span>
+      <span class="chip">TikTok Pixel + Events API</span><span class="chip">Google Enhanced Conversions</span><span class="chip">Server-side Tagging</span>
+      <span class="chip k">Consent Mode v2 · PDPA</span><span class="chip k">CDP / First-party Data</span><span class="chip">Looker Studio Dashboard</span>
+    </div>
+    <div class="back"><b>วนกลับไปข้อ 2</b>Custom Audience · Lookalike · Retarget (คนดูวิดีโอ, คนเข้าเว็บ, คนทักแชท, คนที่ซื้อแล้ว)</div>
+  </div>
+
+  <div class="foot"><span>Road to Digital Marketer · Digital Strategy 101 · Grid &amp; Dots</span><div class="dots"><i></i><i></i><i></i></div></div>
+</div>
+<script>
+function fit(){const s=Math.min(innerWidth/1920,innerHeight/1080);const st=document.getElementById('stage');st.style.transform='scale('+s+')';st.style.left=((innerWidth-1920*s)/2)+'px';st.style.top=((innerHeight-1080*s)/2)+'px';}
+addEventListener('resize',fit);fit();
+</script>
+</body>
+</html>

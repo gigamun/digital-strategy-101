@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Case Room Slides</title>
+<!-- Look: 00 - Brand/Slides/Grid & Dots Slide Look.md · hex: 00 - Brand/brand-decisions.md
+     No dot patterns, no decorative dots, no cream, no black covers. -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&family=Noto+Sans+Thai:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0E0E0E;--red:#DB184C;--lime:#DAF856;--peri:#AAB6FA;--cyan:#7FF0F2;--soft:#F4F4F4;--line:#E2E2E2;--mute:#6B6B6B;--white:#FFFFFF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#888;font-family:"Poppins","Noto Sans Thai",sans-serif;color:var(--ink)}
+.slide{width:1920px;height:1080px;position:relative;overflow:hidden;margin:0 auto 40px;background:var(--white)}
+body.single{background:var(--ink);overflow:hidden;width:100vw;height:100vh} body.single .slide{display:none;margin:0} body.single .slide.on{display:block;position:absolute;top:0;left:0}
+
+/* frame: ink band + white panel (template) */
+.slide.framed{background:var(--ink);padding:84px 32px 32px}
+.band{position:absolute;top:16px;left:32px;right:32px;display:flex;justify-content:space-between;color:var(--white)}
+.band .l{font:500 19px/1.35 "Poppins","Noto Sans Thai"} .band .l b{display:block;font-weight:700}
+.band .r{font:700 21px/1 "Poppins";padding-top:16px}
+.panel{background:var(--white);height:100%;position:relative;padding:54px 72px 80px}
+.steps{position:absolute;top:22px;left:50%;transform:translateX(-50%);display:flex;gap:8px}
+.steps span{font:600 17px/1 "Poppins";padding:10px 16px 9px;border-radius:999px;border:1.5px solid #3A3A3A;color:#9A9A9A}
+.steps span.on{background:var(--lime);border-color:var(--lime);color:var(--ink);font-weight:700}
+.pfoot{position:absolute;left:72px;right:72px;bottom:28px;display:flex;justify-content:space-between;font:500 17px "Noto Sans Thai","Poppins";color:var(--mute)}
+
+/* type */
+.kick{font:700 24px/1 "Poppins";color:var(--red);letter-spacing:.06em;text-transform:uppercase;margin-bottom:16px}
+h1{font:800 78px/1.15 "Poppins","Noto Sans Thai";letter-spacing:-.01em}
+h1 em{font-style:normal;color:var(--red)}
+.lead{font:500 30px/1.5 "Noto Sans Thai";color:var(--mute);margin-top:14px;max-width:1150px}
+.src{font:500 18px/1.4 "Noto Sans Thai";color:var(--mute);margin-top:10px}
+
+/* panels and pills */
+.box{background:var(--soft);border-radius:22px;padding:34px 38px}
+.box h3{font:800 36px/1.25 "Poppins","Noto Sans Thai";margin-bottom:10px}
+.box p,.box li{font:400 26px/1.5 "Noto Sans Thai","Poppins"}
+.box ul{list-style:none}.box li{padding-left:26px;position:relative;margin-bottom:6px}
+.box li::before{content:"–";position:absolute;left:0;color:var(--red);font-weight:700}
+.pill{display:inline-block;font:700 19px/1 "Poppins","Noto Sans Thai";padding:11px 18px 10px;border-radius:999px;margin-bottom:16px}
+.p-lime{background:var(--lime)}.p-peri{background:var(--peri)}.p-cyan{background:var(--cyan)}.p-red{background:var(--red);color:#fff}.p-ink{background:var(--ink);color:#fff}
+.num{font:800 54px/1.1 "Poppins";color:var(--red)}
+.tag{position:absolute;font:700 28px/1.2 "Noto Sans Thai","Poppins";padding:16px 26px;border-radius:999px;transform:rotate(-4deg)}
+.photo{position:absolute;border-radius:26px;object-fit:cover}
+.hair{border-top:1.5px solid var(--line)}
+
+/* cover (white, no frame) */
+.cover{padding:120px 110px}
+.cover .classtag{position:absolute;top:56px;right:110px;text-align:right;font:700 20px/1.4 "Poppins";color:var(--red)}
+.cover .classtag span{display:block;color:var(--ink);font-weight:500}
+.cover .title{font:900 150px/.95 "Poppins";color:var(--red);letter-spacing:-.02em;margin-top:22px}
+.cover .sub{font:600 34px/1.3 "Poppins","Noto Sans Thai";color:var(--red);margin-top:18px}
+.cover .brief{font:500 31px/1.55 "Noto Sans Thai";margin-top:34px;max-width:900px}
+.cover .brief b{font-weight:800}
+.facts{display:flex;gap:18px;margin-top:40px}
+.facts div{background:var(--soft);border-radius:18px;padding:20px 26px;font:500 22px/1.35 "Noto Sans Thai"}
+.facts div b{display:block;font:800 40px/1.1 "Poppins";color:var(--ink)}
+.facts div.hot{background:var(--red);color:#fff}.facts div.hot b{color:#fff}
+.wordmark{position:absolute;left:110px;bottom:56px;font:700 22px "Poppins"}
+.fake{position:absolute;right:110px;bottom:56px;font:500 18px "Noto Sans Thai";color:var(--mute)}
+
+/* tables */
+table{border-collapse:collapse;width:100%;font:500 26px/1.35 "Noto Sans Thai","Poppins"}
+th{font:700 19px/1.2 "Poppins","Noto Sans Thai";text-transform:uppercase;letter-spacing:.04em;text-align:left;color:var(--mute);padding:14px 18px;border-bottom:2px solid var(--ink)}
+td{padding:17px 18px;border-bottom:1.5px solid var(--line)}
+td.n,th.n{text-align:right;font-family:"Poppins";font-variant-numeric:tabular-nums}
+tr.hot td{background:#FDECF1} tr.tot td{font-weight:800;border-bottom:none;border-top:2px solid var(--ink)}
+.red{color:var(--red);font-weight:800}
+
+/* your turn questions */
+.q{border-top:4px solid var(--ink);padding-top:26px}
+.q .qn{font:900 110px/.9 "Poppins";color:var(--red)}
+.q h3{font:800 42px/1.3 "Noto Sans Thai";margin:16px 0 12px}
+.q p{font:400 26px/1.55 "Noto Sans Thai";color:var(--mute)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.chips span{font:600 21px/1 "Poppins";padding:11px 17px 10px;border-radius:999px;background:var(--soft)}
+</style>
+</head>
+<body>
+
+<!-- ===================== CASE 01 ===================== -->
+
+<!-- 1 · Business Issue (cover) -->
+<section class="slide cover">
+  <div class="classtag">Road to Digital Marketer<span>Case Room</span></div>
+  <span class="pill p-lime" style="font-size:24px;padding:14px 26px 12px">Case 01 · Business Issue</span>
+  <div class="title">BRAND<br>LAUNCH</div>
+  <div class="sub">แบรนด์ใหม่ ยังไม่มีใครรู้จัก</div>
+  <p class="brief">แบรนด์ <b>ซ่า (SAA)</b> น้ำยูซุอัดลม เปิดตัว ม.ค.<br>โจทย์จากแบรนด์: ให้คนรู้จัก และลองซื้อขวดแรก ภายใน 3 เดือน</p>
+  <div class="facts">
+    <div><b>25 ฿</b>ต่อขวด 330 ml</div>
+    <div><b>3,000</b>สาขาร้านสะดวกซื้อ</div>
+    <div class="hot"><b>1.5 ล้าน ฿</b>งบสื่อ 3 เดือน</div>
+  </div>
+  <img class="photo" src="images/c1-product.jpg" style="right:110px;top:150px;width:620px;height:800px" alt="">
+  <div class="wordmark">Grid &amp; Dots</div>
+  <div class="fake" style="right:760px">ข้อมูลสมมติทั้งหมด · ใช้ในห้องเรียนเท่านั้น</div>
+</section>
+
+<!-- 2 · Competitor -->
+<section class="slide framed" data-case="Case 01 · Brand Launch" data-step="2">
+  <div class="panel">
+    <div class="kick">Competitor</div>
+    <h1>คู่แข่งในตู้แช่<em>เดียวกัน</em></h1>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:54px">
+      <div class="box"><span class="pill p-lime">เจ้าตลาด</span><h3>Fizzy Lemon</h3><p class="num">20 ฿</p>
+        <ul style="margin-top:16px"><li>จุดขาย: สดชื่น ราคาถูก</li><li>คลิปสั้นบน TikTok ทุกสัปดาห์</li><li>ป้ายหน้าร้าน + ชั้นวางระดับสายตา</li></ul></div>
+      <div class="box"><span class="pill p-peri">สายสุขภาพ</span><h3>Kombu Up</h3><p class="num">35 ฿</p>
+        <ul style="margin-top:16px"><li>จุดขาย: น้ำตาลน้อย</li><li>รีวิวผ่าน KOL สายสุขภาพบน IG</li><li>ขายร้านสะดวกซื้อ + ฟิตเนส</li></ul></div>
+      <div class="box"><span class="pill p-cyan">สายโปร</span><h3>Cha-Sa</h3><p class="num">20 ฿</p>
+        <ul style="margin-top:16px"><li>จุดขาย: ชาเขียวอัดลม</li><li>โปร "ซื้อ 2 ถูกกว่า" หน้าร้าน</li><li>โฆษณา Meta เน้น Reach</li></ul></div>
+    </div>
+    <div style="margin-top:44px;font:700 30px 'Noto Sans Thai';padding-top:22px" class="hair">ช่องทางขายหลักของทุกเจ้า: <span style="color:var(--red)">ตู้แช่ร้านสะดวกซื้อ</span></div>
+  </div>
+</section>
+
+<!-- 3 · Agency Solution -->
+<section class="slide framed" data-case="Case 01 · Brand Launch" data-step="3">
+  <div class="panel">
+    <div class="kick">Agency Solution</div>
+    <h1>แผนที่<em>เอเจนซี่</em>ส่งมา</h1>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:44px;width:1180px">
+      <div class="box"><span class="pill p-lime">Target</span><h3>ผู้บริหาร อายุ 35–50 ปี</h3><p>รายได้ 150,000 บาท/เดือนขึ้นไป<br>ชอบศึกษาข้อมูลก่อนตัดสินใจ</p></div>
+      <div class="box"><span class="pill p-peri">Data Back-up</span><h3>72% ของผู้บริหาร อ่านรีวิว 3 แหล่งขึ้นไปก่อนซื้อ</h3><p class="src">ที่มา: ผลสำรวจการซื้อรถยนต์และประกันภัย ปี 2025</p></div>
+      <div class="box"><span class="pill p-cyan">Platform</span><ul><li>LinkedIn 40%</li><li>YouTube คลิป 3 นาที 35%</li><li>Google Search 25%</li></ul><p class="src">คีย์เวิร์ด "เครื่องดื่มยูซุ ยี่ห้อไหนดี"</p></div>
+      <div class="box"><span class="pill p-red">Content</span><ul><li>คลิป 3 นาที เล่าที่มายูซุจากญี่ปุ่น</li><li>Landing page ตารางเทียบส่วนผสม</li><li>ฟอร์มลงทะเบียนรับคูปอง</li></ul></div>
+    </div>
+    <img class="photo" src="images/c1-exec.jpg" style="right:72px;top:150px;width:470px;height:690px" alt="">
+  </div>
+</section>
+
+<!-- 4 · Agency Recommendation -->
+<section class="slide framed" data-case="Case 01 · Brand Launch" data-step="4">
+  <div class="panel">
+    <div class="kick">Agency Recommendation</div>
+    <h1>Objective: <em>Conversion</em> ตั้งแต่วันแรก</h1>
+    <p class="lead">งบทั้งหมด 1.5 ล้านบาท ลงแคมเปญ Conversion 100% แล้วปรับงบตาม ROAS ทุกสัปดาห์</p>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:54px">
+      <div class="box"><span class="pill p-lime">KPI 1</span><p class="num" style="font-size:78px">5,000</p><p>คน ลงทะเบียนรับคูปอง</p></div>
+      <div class="box"><span class="pill p-peri">KPI 2</span><p class="num" style="font-size:78px">≤300 ฿</p><p>CPA ต่อการลงทะเบียน</p></div>
+      <div class="box"><span class="pill p-cyan">KPI 3</span><p class="num" style="font-size:78px">3×</p><p>ROAS ภายในสัปดาห์ที่ 2</p></div>
+      <div class="box" style="background:var(--red);color:#fff"><span class="pill p-ink">Budget</span><p class="num" style="font-size:78px;color:#fff">100%</p><p>Conversion ทั้ง 12 สัปดาห์</p></div>
+    </div>
+    <div style="margin-top:50px;display:grid;grid-template-columns:repeat(12,1fr);gap:8px">
+      <div style="grid-column:span 12;font:600 20px 'Poppins';color:var(--mute);margin-bottom:6px">สัปดาห์ 1 → 12</div>
+      <div style="grid-column:span 12;height:16px;border-radius:999px;background:var(--ink)"></div>
+      <div style="grid-column:span 12;font:700 22px 'Poppins'">Conversion · Conversion · Conversion · Conversion · Conversion · Conversion</div>
+    </div>
+  </div>
+</section>
+
+<!-- 5 · Your Turn -->
+<section class="slide framed" data-case="Case 01 · Brand Launch" data-step="5">
+  <div class="panel">
+    <div class="kick">Your Turn</div>
+    <h1>ถ้าแผนนี้ส่งมาถึงโต๊ะ<em>คุณ</em></h1>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:60px;width:1220px">
+      <div class="q"><div class="qn">1</div><h3>จะถามอะไรกลับเอเจนซี่</h3><p>จากข้อมูลบนสไลด์ ตรงไหนที่ยังไม่เมกเซนส์</p>
+        <div class="chips"><span>Target</span><span>Data Back-up</span><span>Platform</span><span>KPI</span></div></div>
+      <div class="q"><div class="qn">2</div><h3>ถ้าเป็นเรา จะแนะนำอะไรเพิ่ม</h3><p>ใช้กรอบ 4×4 เริ่มจากขั้นไหนของ Funnel</p>
+        <div class="chips"><span>Audience</span><span>Placement</span><span>Creative</span><span>Measurement</span></div></div>
+    </div>
+    <img class="photo" src="images/c1-store.jpg" style="right:72px;top:150px;width:440px;height:640px" alt="">
+    <div class="tag p-lime" style="right:150px;top:770px">คนซื้อจริงอยู่ตรงไหน?</div>
+  </div>
+</section>
+
+<!-- ===================== CASE 02 ===================== -->
+
+<!-- 6 · Business Issue (cover) -->
+<section class="slide cover">
+  <div class="classtag">Road to Digital Marketer<span>Case Room</span></div>
+  <span class="pill p-lime" style="font-size:24px;padding:14px 26px 12px">Case 02 · Business Issue</span>
+  <div class="title">SALES<br>DROP</div>
+  <div class="sub">ยอดขายไตรมาส 3 ลดลง</div>
+  <p class="brief">แบรนด์ <b>LOOM</b> เสื้อผ้าลินิน ขายบนเว็บและ Shopee<br>อยากให้ยอดกลับมา หรือหาช่องทางขายใหม่</p>
+  <div class="facts">
+    <div><b>890 ฿</b>ราคาเฉลี่ยต่อชิ้น</div>
+    <div><b>2.98 → 2.32 ล้าน</b>ยอดขาย Q2 → Q3</div>
+    <div class="hot"><b>−22%</b>เทียบไตรมาสก่อน</div>
+  </div>
+  <img class="photo" src="images/c2-fashion.jpg" style="right:110px;top:150px;width:620px;height:800px" alt="">
+  <div class="wordmark">Grid &amp; Dots</div>
+  <div class="fake" style="right:760px">ข้อมูลสมมติทั้งหมด · ใช้ในห้องเรียนเท่านั้น</div>
+</section>
+
+<!-- 7 · Competitor -->
+<section class="slide framed" data-case="Case 02 · Sales Drop" data-step="2">
+  <div class="panel">
+    <div class="kick">Competitor</div>
+    <h1>ไตรมาสนี้ <em>คู่แข่ง</em>ทำอะไร</h1>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:54px">
+      <div class="box"><span class="pill p-lime">สายราคา</span><h3>Basic Mood</h3><p class="num">390 ฿</p>
+        <ul style="margin-top:16px"><li>ลดราคาเกือบทุกเดือน</li><li>แคมเปญวันเงินเดือนออก</li></ul></div>
+      <div class="box"><span class="pill p-peri">สายพรีเมียม</span><h3>Studio Nim</h3><p class="num">1,890 ฿</p>
+        <ul style="margin-top:16px"><li>Lookbook บน IG ทุกคอลเลกชัน</li><li>ไม่ลดราคา ใช้ของแถมแทน</li></ul></div>
+      <div class="box"><span class="pill p-cyan">ช่องทางใหม่</span><h3>Linen Lab</h3><p class="num">790 ฿</p>
+        <ul style="margin-top:16px"><li>เปิด TikTok Shop ไตรมาสนี้</li><li>ไลฟ์ขายทุกคืน 2 ทุ่ม</li></ul></div>
+    </div>
+    <div style="margin-top:44px;font:700 30px 'Noto Sans Thai';padding-top:22px" class="hair">LOOM อยู่ตรงกลาง: <span style="color:var(--red)">890 ฿ · ขายเว็บ + Shopee</span></div>
+  </div>
+</section>
+
+<!-- 8 · Agency Solution -->
+<section class="slide framed" data-case="Case 02 · Sales Drop" data-step="3" data-src="ที่มา: รายงานจาก Ads Manager ที่เอเจนซี่ส่งมา">
+  <div class="panel">
+    <div class="kick">Agency Solution · Q3 Performance</div>
+    <h1>เอเจนซี่สรุปว่า <em>Flash Sale คุ้มที่สุด</em></h1>
+    <div style="display:grid;grid-template-columns:1fr 360px;gap:60px;margin-top:46px;align-items:start">
+      <table>
+        <tr><th>แคมเปญ (Q3)</th><th class="n">Spend (฿)</th><th class="n">Sales (฿)</th><th class="n">ROAS</th><th class="n">Orders</th></tr>
+        <tr class="hot"><td><b>A</b> · Flash Sale ลด 50%</td><td class="n">120,000</td><td class="n">960,000</td><td class="n red">8.0×</td><td class="n">2,400</td></tr>
+        <tr><td><b>B</b> · New Collection Lookbook</td><td class="n">150,000</td><td class="n">675,000</td><td class="n">4.5×</td><td class="n">1,125</td></tr>
+        <tr><td><b>C</b> · Retargeting ตะกร้าค้าง</td><td class="n">60,000</td><td class="n">420,000</td><td class="n">7.0×</td><td class="n">1,050</td></tr>
+        <tr><td><b>D</b> · Lookalike ลูกค้าใหม่</td><td class="n">90,000</td><td class="n">270,000</td><td class="n">3.0×</td><td class="n">600</td></tr>
+        <tr class="tot"><td>รวม</td><td class="n">420,000</td><td class="n">2,325,000</td><td class="n">5.5×</td><td class="n">5,175</td></tr>
+      </table>
+      <div class="box" style="background:var(--red);color:#fff;text-align:center;padding:44px 30px">
+        <p style="font:700 22px 'Poppins'">ROAS แคมเปญ A</p>
+        <p style="font:900 150px/1 'Poppins';margin:10px 0">8×</p>
+        <p>สูงสุดในทุกแคมเปญ</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · Agency Recommendation -->
+<section class="slide framed" data-case="Case 02 · Sales Drop" data-step="4">
+  <div class="panel">
+    <div class="kick">Agency Recommendation</div>
+    <h1>ย้ายงบไปที่ ROAS สูงสุด แล้ว<em>เปิด TikTok Shop</em></h1>
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:44px;margin-top:46px">
+      <div><span class="pill p-lime">1 · ย้ายงบ (รวม 420,000 ฿ เท่าเดิม)</span>
+        <table>
+          <tr><th>แคมเปญ</th><th class="n">Q3</th><th class="n">Q4 ที่เสนอ</th></tr>
+          <tr class="hot"><td>A · Flash Sale</td><td class="n">120,000</td><td class="n red">300,000 ▲</td></tr>
+          <tr><td>B · New Collection</td><td class="n">150,000</td><td class="n">60,000 ▼</td></tr>
+          <tr><td>C · Retargeting</td><td class="n">60,000</td><td class="n">60,000</td></tr>
+          <tr><td>D · Lookalike</td><td class="n">90,000</td><td class="n">0 ▼</td></tr>
+        </table></div>
+      <div style="display:flex;flex-direction:column;gap:30px">
+        <div class="box"><span class="pill p-peri">2 · ช่องทางใหม่</span><h3>เปิด TikTok Shop</h3><p>ใช้โปรลด 50% แบบเดียวกับแคมเปญ A</p></div>
+        <div class="box"><span class="pill p-cyan">3 · เป้าหมาย</span><h3>ยอดขาย Q4 ≈ <span style="color:var(--red)">3.1 ล้าน ฿</span></h3><p>คงไว้ที่ ROAS 8 เท่า</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10 · Your Turn + backend data -->
+<section class="slide framed" data-case="Case 02 · Sales Drop" data-step="5" data-src="ที่มา: ระบบหลังร้าน (เว็บไซต์ + Shopee) · Gross margin คิดหลังหักส่วนลด">
+  <div class="panel">
+    <div class="kick">Your Turn · ข้อมูลจากหลังร้าน</div>
+    <h1>แต่ตัวเลขฝั่ง<em>ธุรกิจ</em>บอกอีกแบบ</h1>
+    <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:70px;margin-top:40px">
+      <div>
+        <table style="font-size:25px">
+          <tr><th>แคมเปญ</th><th class="n">Orders</th><th class="n">% คืนสินค้า</th><th class="n">Gross margin</th></tr>
+          <tr class="hot"><td>A · Flash Sale</td><td class="n">2,400</td><td class="n red">38%</td><td class="n red">10%</td></tr>
+          <tr><td>B · New Collection</td><td class="n">1,125</td><td class="n">8%</td><td class="n">55%</td></tr>
+          <tr><td>C · Retargeting</td><td class="n">1,050</td><td class="n">12%</td><td class="n">45%</td></tr>
+          <tr><td>D · Lookalike</td><td class="n">600</td><td class="n">10%</td><td class="n">55%</td></tr>
+        </table>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px">
+          <div class="box" style="padding:22px 24px"><p style="font-size:20px;color:var(--mute)">ค่าส่งคืนต่อออเดอร์</p><p class="num" style="font-size:44px">80 ฿</p></div>
+          <div class="box" style="padding:22px 24px"><p style="font-size:20px;color:var(--mute)">% คืนสินค้ารวม Q2 → Q3</p><p class="num" style="font-size:44px">9 → 23%</p></div>
+          <div class="box" style="padding:22px 24px"><p style="font-size:20px;color:var(--mute)">ลูกค้าซื้อซ้ำ Q2 → Q3</p><p class="num" style="font-size:44px">31 → 19%</p></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:46px">
+        <div class="q"><div class="qn" style="font-size:80px">1</div><h3 style="font-size:36px">จะถามอะไรกลับเอเจนซี่</h3><p>ROAS 8 เท่า ยังเป็นตัวเลขที่ควรใช้ตัดสินใจไหม</p></div>
+        <div class="q"><div class="qn" style="font-size:80px">2</div><h3 style="font-size:36px">ถ้าเป็นเรา จะแนะนำอะไรเพิ่ม</h3><p>ควรดูตัวเลขอะไรนอกจาก Media metrics</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== BACKUP: ANSWERS ===================== -->
+
+<!-- 11 · Case 01 answer -->
+<section class="slide framed" data-case="Backup · เฉลย Case 01">
+  <div class="panel">
+    <div class="kick">เฉลย · Case 01 Brand Launch</div>
+    <h1>ผิดตั้งแต่<em>ขั้นแรกของ Funnel</em></h1>
+    <table style="margin-top:34px;font-size:25px">
+      <tr><th style="width:230px">แกน</th><th>เอเจนซี่เสนอ</th><th>ควรเป็น</th></tr>
+      <tr><td><b>Funnel</b></td><td>Conversion ตั้งแต่วันแรก</td><td class="red">Awareness → Trial</td></tr>
+      <tr><td><b>Audience</b></td><td>ผู้บริหาร 35–50 ปี อ้างข้อมูลการซื้อรถยนต์และประกัน</td><td class="red">คนทำงานและนักศึกษา 18–34 ปี ใกล้สาขาที่วางขาย</td></tr>
+      <tr><td><b>Placement</b></td><td>LinkedIn, YouTube 3 นาที, Google Search</td><td class="red">TikTok, Reels, Meta Reach, สื่อในร้าน, แจกชิม</td></tr>
+      <tr><td><b>Creative</b></td><td>คลิปยาว ตารางเทียบส่วนผสม ฟอร์มรับคูปอง</td><td class="red">คลิป 6–15 วินาที เห็นขวดและชื่อใน 2 วินาทีแรก</td></tr>
+      <tr><td><b>Measurement</b></td><td>ROAS 3 เท่า ในสัปดาห์ที่ 2</td><td class="red">Reach, Frequency, Ad recall, ยอดขายต่อสาขา</td></tr>
+    </table>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-top:34px">
+      <div class="box" style="padding:26px 32px"><span class="pill p-lime">ทำไม</span><p>น้ำอัดลม 25 บาท เป็นสินค้า low-involvement คนตัดสินใจหน้าตู้แช่ในไม่กี่วินาที ไม่หาข้อมูลก่อนซื้อ</p></div>
+      <div class="box" style="padding:26px 32px"><span class="pill p-peri">ตัวเลขที่ควรถาม</span><p>CPA 300 บาท แต่ขวดละ 25 บาท ต้องซื้อ 12 ขวดขึ้นไปถึงคุ้มค่าโฆษณา ยังไม่นับต้นทุนสินค้า</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12 · Case 02 answer -->
+<section class="slide framed" data-case="Backup · เฉลย Case 02" data-src="กำไร = ยอดหลังหักคืน × Gross margin − ค่าส่งคืน 80 ฿/ออเดอร์ − ค่าโฆษณา">
+  <div class="panel">
+    <div class="kick">เฉลย · Case 02 Sales Drop</div>
+    <h1>ROAS สูงสุด คือแคมเปญเดียวที่<em>ขาดทุน</em></h1>
+    <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:56px;margin-top:36px">
+      <div>
+        <table style="font-size:25px">
+          <tr><th>แคมเปญ</th><th class="n">ROAS</th><th class="n">% คืน</th><th class="n">กำไร (฿)</th></tr>
+          <tr class="hot"><td>A · Flash Sale</td><td class="n">8.0×</td><td class="n">38%</td><td class="n red">−133,440</td></tr>
+          <tr><td>B · New Collection</td><td class="n">4.5×</td><td class="n">8%</td><td class="n"><b>+184,350</b></td></tr>
+          <tr><td>C · Retargeting</td><td class="n">7.0×</td><td class="n">12%</td><td class="n">+96,240</td></tr>
+          <tr><td>D · Lookalike</td><td class="n">3.0×</td><td class="n">10%</td><td class="n">+38,850</td></tr>
+          <tr class="tot"><td>รวม Q3</td><td class="n">5.5×</td><td class="n">23%</td><td class="n">+186,000</td></tr>
+        </table>
+        <div class="box" style="background:var(--red);color:#fff;margin-top:28px;padding:24px 30px;display:flex;align-items:center;gap:26px">
+          <p style="font:900 54px/1 'Poppins'">−163,620</p>
+          <p style="font-size:23px;line-height:1.4">กำไรรวม Q4 ถ้าทำตามแผนเอเจนซี่<br>(สมมติผลเพิ่มตามงบแบบเส้นตรง)</p></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:24px">
+        <div class="box" style="padding:26px 30px"><span class="pill p-lime">ประเด็น</span>
+          <ul><li>ROAS นับยอดขายก่อนหักคืนสินค้า</li><li>แผนเอเจนซี่ตัดงบ B ซึ่งทำกำไรมากที่สุด</li><li>คืนสินค้ารวม 9→23% ซื้อซ้ำ 31→19%: โปร 50% ดึงคนที่ไม่ใช่ลูกค้าตัวจริง</li></ul></div>
+        <div class="box" style="padding:26px 30px"><span class="pill p-peri">ควรแนะนำ</span>
+          <ul><li>วัดยอดหลังหักคืน และกำไรต่อแคมเปญ คู่กับ ROAS</li><li>เก็บงบ B และ C ลดหรือปรับ A</li><li>ลอง TikTok Shop งบเล็ก ไม่ใช้โปร 50%</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Frame band, steps and footer for framed slides
+const STEPS=['Business Issue','Competitor','Solution','Recommendation','Your Turn'];
+document.querySelectorAll('.slide.framed').forEach((s,i)=>{
+  const step=+s.dataset.step, panel=s.querySelector('.panel');
+  s.insertAdjacentHTML('afterbegin',`<div class="band"><div class="l">Road to Digital Marketer · Case Room<b>${s.dataset.case}</b></div><div class="r">Grid &amp; Dots</div></div>`+(step?`<div class="steps">${STEPS.map((t,k)=>`<span class="${k+1===step?'on':''}">${t}</span>`).join('')}</div>`:''));
+  panel.insertAdjacentHTML('beforeend',`<div class="pfoot"><span>${s.dataset.src?s.dataset.src+' · ':''}ข้อมูลสมมติทั้งหมด · ใช้ในห้องเรียนเท่านั้น</span><span>${[...document.querySelectorAll('.slide')].indexOf(s)+1}</span></div>`);
+});
+// Present mode (default): one slide scaled to the window.
+// → / Space / click = next, ← = back, F = fullscreen, Home/End = first/last.
+// Export: case-slides.html#3 opens slide 3 (headless screenshot uses this too).
+const slides=[...document.querySelectorAll('.slide')];
+let cur=Math.min(Math.max(parseInt(location.hash.slice(1),10)||1,1),slides.length)-1;
+document.body.classList.add('single');
+function fit(){const k=Math.min(innerWidth/1920,innerHeight/1080);
+  slides.forEach(el=>{el.style.transformOrigin='0 0';el.style.transform=`translate(${(innerWidth-1920*k)/2}px,${(innerHeight-1080*k)/2}px) scale(${k})`;});}
+function show(i){cur=Math.min(Math.max(i,0),slides.length-1);slides.forEach((el,k)=>el.classList.toggle('on',k===cur));history.replaceState(null,'','#'+(cur+1));}
+addEventListener('resize',fit);
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown','PageDown',' '].includes(e.key)){e.preventDefault();show(cur+1);}
+  else if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();show(cur-1);}
+  else if(e.key==='Home')show(0); else if(e.key==='End')show(slides.length-1);
+  else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();}
+});
+addEventListener('click',()=>show(cur+1));
+fit();show(cur);
+</script>
+</body>
+</html>
